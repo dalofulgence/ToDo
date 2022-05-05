@@ -40,17 +40,17 @@ const getSingle = async (req, res, next) => {
 const createUser = async (req, res) => {
   
   const user = {
-    username: req.user.username,
-    firstName: req.user.firstName,
-    lastName: req.user.lastName,
-    DOB: req.user.DOB,
-    password: req.user.password,
-    email: req.user.email,
-    phone: req.user.phone,
-    address: req.user.address,
-    todo_id: req.user.todo_id,
-    todo: req.user.todo,
-    date: req.user.date,
+    username: req.body.username,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    DOB: req.body.DOB,
+    password: req.body.password,
+    email: req.body.email,
+    phone: req.body.phone,
+    address: req.body.address,
+    todo_id: req.body.todo_id,
+    todo: req.body.todo,
+    date: req.body.date,
   };
   const response = await mongodb.getDb().db().collection('ToDoList').insertOne(user);
   if (response.acknowledged) {
@@ -65,17 +65,17 @@ const updateUser = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   
   const user = {
-    username: req.user.username,
-    firstName: req.user.firstName,
-    lastName: req.user.lastName,
-    DOB: req.user.DOB,
-    password: req.user.password,
-    email: req.user.email,
-    phone: req.user.phone,
-    address: req.user.address,
-    todo_id: req.user.todo_id,
-    todo: req.user.todo,
-    date: req.user.date,
+    username: req.body.username,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    DOB: req.body.DOB,
+    password: req.body.password,
+    email: req.body.email,
+    phone: req.body.phone,
+    address: req.body.address,
+    todo_id: req.body.todo_id,
+    todo: req.body.todo,
+    date: req.body.date,
   };
   const response = await mongodb
     .getDb()
