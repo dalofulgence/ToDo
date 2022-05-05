@@ -1,0 +1,32 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "To Do List App",
+  "main": "index.js",
+  "start": "nodemon index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "swagger-autogen": "node ./swagger.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalofulgence/ToDoList.git"
+  },
+  "author": "Fulgence Dalo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dalofulgence/ToDoList/issues"
+  },
+  "homepage": "https://github.com/dalofulgence/ToDoList#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.2",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "swagger-autogen": "^2.21.1"
+  }
+}

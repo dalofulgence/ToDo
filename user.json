@@ -1,0 +1,17 @@
+{
+    "User":
+        { "username": "Fdalo",
+            "firstName": "fulgence",
+            "lastName": "Dalo",
+            "DOB": "01/01/1999",
+            "password": "Fdalo",
+            "email": "dalo@byui.edu",
+            "phone": "701-701-7011",
+            "address": "123 west",
+            "todo_id": "1222",
+            "todo": "Go to work",
+            "date": "01/01/2022"
+
+        }
+
+}

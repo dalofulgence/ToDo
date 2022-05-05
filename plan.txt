@@ -1,0 +1,13 @@
+User
+    username
+        _id
+        password
+        email
+        Phone
+        address
+        todo_id
+
+todo
+    user_id
+    date
+
