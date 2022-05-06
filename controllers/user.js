@@ -6,7 +6,7 @@ const apiKey =
 
 const getAll = async (req, res, next) => {
   if (req.header('apiKey') === apiKey){
-    const result = await mongodb.getDb().db().collection('user').find();
+    const result = await mongodb.getDb().db().collection('ToDoApp').find();
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists);
@@ -24,7 +24,7 @@ const getSingle = async (req, res, next) => {
     const result = await mongodb
       .getDb()
       .db()
-      .collection('ToDoList')
+      .collection('ToDoApp')
       .find({ _id: userId });
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
@@ -52,7 +52,7 @@ const createUser = async (req, res) => {
     todo: req.body.todo,
     date: req.body.date,
   };
-  const response = await mongodb.getDb().db().collection('ToDoList').insertOne(user);
+  const response = await mongodb.getDb().db().collection('ToDoApp').insertOne(user);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
@@ -80,7 +80,7 @@ const updateUser = async (req, res) => {
   const response = await mongodb
     .getDb()
     .db()
-    .collection('ToDoList')
+    .collection('ToDoApp')
     .replaceOne({ _id: userId }, user);
   console.log(response);
   if (response.modifiedCount > 0) {
@@ -94,7 +94,7 @@ const updateUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
   const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db().collection('ToDoList').remove({ _id: userId }, true);
+  const response = await mongodb.getDb().db().collection('ToDoApp').remove({ _id: userId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
