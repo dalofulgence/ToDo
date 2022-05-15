@@ -1,20 +1,20 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
+const createError = require('http-errors');
 
 const apiKey =
   'mZYO1jI6U3DNREKPYqxPFawLI95LpWfXXPFHYFyu1MZqX7MTXAP21D1Irb93zyiK';
 
 const getAll = async (req, res, next) => {
-  if (req.header('apiKey') === apiKey){
-    const result = await mongodb.getDb().db().collection('ToDoApp').find();
-    result.toArray().then((lists) => {
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(lists);
-    });
-  }else {
-    res.send('Invalid apiKey, please read the documentation.');
-  }
-  
+    if (req.header('apiKey') === apiKey){
+      const result = await mongodb.getDb().db().collection('ToDoApp').find();
+      result.toArray().then((lists) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(lists);
+      });
+    }else {
+      res.send('Invalid apiKey, please read the documentation.');
+    }
   
 };
 
@@ -30,6 +30,9 @@ const getSingle = async (req, res, next) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists[0]);
     });
+    if (!result){
+      throw('No Result with this ID')
+    }
   }else {
     res.send('Invalid apiKey, please read the documentation.');
   }
